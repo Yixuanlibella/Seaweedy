@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('img/background.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#preface-container {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 20px;
+    opacity: 1;
+    animation: fadeOut 5s forwards; 
+}
+.preface-text {
+    max-width: 800px;
+    line-height: 1.5em;
+    color: white;
+    animation: waveAnimation 5s infinite ease-in-out, blurAnimation 5s infinite alternate; /* Wave and blur animation */
+}
+
+@keyframes waveAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes blurAnimation {
+    0% {
+        filter: blur(0px); /* Clear */
+    }
+    50% {
+        filter: blur(2px); /* Partially blurred */
+    }
+    100% {
+        filter: blur(0px); /* Clear again */
+    }
+}
+
+
+#main-content {
+    display: none;
+    z-index: 2; /* Set z-index higher than the wave effect */
+}
+
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+
+
+.button {
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    transition: 0.3s;
+
+}
+.button {
+    z-index: 5; /* Higher than other elements */
+    position: relative;
+}
+
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+.arrow {
+    width: 40px;
+    height: auto;
+    margin: 0 10px;
+}
+
+/* Rotating wave effect */
+body:before, body:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    min-width: 300vw;
+    min-height: 300vw;
+    background-color: #fff;
+    opacity: 0.1;
+    animation: rotate 10s infinite linear;
+    z-index: 1; /* Lower z-index so it's behind the content */
+}
+
+body:before {
+    bottom: 15vh;
+    border-radius: 45%;
+}
+
+body:after {
+    bottom: 12vh;
+    border-radius: 47%;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, 0) rotateZ(0deg);
+    }
+    50% {
+        transform: translate(-50%, -2%) rotateZ(180deg);
+    }
+    100% {
+        transform: translate(-50%, 0%) rotateZ(360deg);
+    }
+}
+
+
+
